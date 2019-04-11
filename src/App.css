@@ -33,3 +33,14 @@ Result {
 button.btn.btn-danger {
     margin-left: 8px;
 }
+
+#formComponents {
+    display: flex;
+    flex-direction: column;
+}
+
+#formComponents #formButtons {
+    display: flex;
+    flex-direction: row;
+}
+

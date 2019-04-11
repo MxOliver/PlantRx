@@ -5,6 +5,7 @@ import Solutions from './Solutions';
 import SolutionList from './SolutionList';
 import Logo from "../images/icons8-potted-plant-64.png";
 import '../App.css';
+import ResetButton from './ResetButton';
 
 class PlantRx extends Component {
     render() {
@@ -21,7 +22,7 @@ class PlantRx extends Component {
             <Result />
             </div>
             <div className="col-md-4 offset-md-1">
-            <h2>Describe your symptoms: </h2>
+            <h2>Describe it's symptoms: </h2>
             <PlantForm />
             </div>
             </div>
@@ -32,6 +33,7 @@ class PlantRx extends Component {
             </div>
             <div className="col-md-4 offset-md-1">
             <Solutions />
+            <ResetButton />
             </div>
             </div>
             </div>
