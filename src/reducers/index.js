@@ -1,11 +1,11 @@
-import { ADD_SYMPTOMS, ADD_SOLUTION } from '../constants/action-types';
+import { ADD_SYMPTOMS, ADD_SOLUTION, RESET_APP } from '../constants/action-types';
 
 const initialState = {
     symptoms: [],
     solution: []
 }
 
-export function rootReducer(state = initialState, action) {
+export function appReducer(state = initialState, action) {
     switch (action.type) {
         case ADD_SYMPTOMS:
             return Object.assign({}, state, {
@@ -20,4 +20,11 @@ export function rootReducer(state = initialState, action) {
     }
 }
 
-export default rootReducer; 
+export const rootReducer = (state, action) => {
+    if (action.type === RESET_APP) {
+        state = undefined;
+    }
+    return appReducer(state, action); 
+}
+
+export default appReducer; 

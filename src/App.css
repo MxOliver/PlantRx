@@ -2,4 +2,34 @@ body {
     margin-left: 35px;
     margin-right: 30px;
     padding: 15px;
+    font-family: 'Raleway', sans-serif;
+    background: darkseagreen;
+}
+
+select {
+    width: 95%;
+}
+
+.main {
+    margin-top: 55px;
+    border: dashed white 2px;
+    padding-bottom: 50px;
+}
+
+.header {
+    margin-top: 15px;
+    display: flex;
+}
+
+.logo-title {
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+Result {
+    background: bisque;
+}
+
+button.btn.btn-danger {
+    margin-left: 8px;
 }

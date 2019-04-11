@@ -1,12 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import uuidv1 from "uuid";
-import { addSymptoms } from "../actions/index";
+import { addSymptoms, resetApp } from "../actions/index";
 
 function mapDispatchToProps(dispatch){
     return {
-        addSymptoms: symptom => dispatch(addSymptoms(symptom))
+        addSymptoms: symptom => dispatch(addSymptoms(symptom)),
     };
+}
+
+function mapStateToProps(state) {
+    return {
+        symptoms: state.symptoms
+    }
 }
 
 class ConnectedPlantForm extends Component {
@@ -19,6 +25,7 @@ class ConnectedPlantForm extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleClear = this.handleClear.bind(this);
     }
 
     handleChange(e){
@@ -35,13 +42,18 @@ class ConnectedPlantForm extends Component {
         this.setState({ selectedSymptoms: ''});
     }
 
+    handleClear(e) {
+        e.preventDefault();
+       /// this.props.resetApp({ });
+    }
+
     render() {
         const { selectedSymptoms } = this.state;
 
         return (
             <form onSubmit={this.handleSubmit}>
             <div className="form-group">
-            <label htmlFor="symptoms">Select one at a time, your results will appear on the left: </label>
+            <label htmlFor="symptoms">Select one at a time: </label>
             <select id="selectedSymptoms" value={selectedSymptoms} onChange={this.handleChange}>
                 <option id="defaultVal" value="select a symptom">Select a symptom</option>
                 <option id="selectedSymptoms" value="over watering">Wilted or droopy soft pliable leaves</option>
@@ -51,12 +63,13 @@ class ConnectedPlantForm extends Component {
             </select>
             </div>
             <button type="submit" className="btn btn-warning">Submit</button>
+            <button type="button" onClick={this.handleClear} className="btn btn-danger">Reset</button>
             </form>
         )
     }
 
 }
 
-const PlantForm = connect(null, mapDispatchToProps)(ConnectedPlantForm);
+const PlantForm = connect(null, mapDispatchToProps, mapStateToProps)(ConnectedPlantForm);
 
 export default PlantForm;

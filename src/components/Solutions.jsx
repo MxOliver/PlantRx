@@ -24,7 +24,7 @@ class ConnectedSolutions extends Component {
     }
 
     fetchSolutions() {
-        for(let value of Object.values(this.props.symptoms)){
+        for(let value of Object.values(this.props.symptoms.slice(-1))){
             const key = value.selectedSymptoms;  
             let values = lexicon[key];
             let id = uuidv1();
@@ -43,6 +43,6 @@ class ConnectedSolutions extends Component {
     }
 }
 
-const SolutionSelect = connect(mapStateToProps, mapDispatchToProps)(ConnectedSolutions);
+const SolutionSelect = connect(null, mapStateToProps, mapDispatchToProps)(ConnectedSolutions);
 
 export default SolutionSelect;

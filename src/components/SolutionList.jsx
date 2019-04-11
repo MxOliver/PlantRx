@@ -7,7 +7,7 @@ const mapStateToProps = state => {
 
 const ConnectedSolutions = ({ solution }) => (
     <ul className="list-group list-group-flush">
-    {solution.slice(-1).map(el => (
+    {solution.map(el => (
         <li className="list-group-item" key={el.id}>
         {el.values}
         </li>
