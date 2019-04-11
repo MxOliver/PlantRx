@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware } from "redux";
 import { removeDuplicatesMiddleware } from '../middleware/removeDuplicates';
-import appReducer from '../reducers/index';
+import rootReducer from '../reducers/index';
 
 const store = createStore(
-    appReducer,
+    rootReducer,
     applyMiddleware(removeDuplicatesMiddleware)
 );
 

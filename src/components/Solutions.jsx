@@ -43,6 +43,6 @@ class ConnectedSolutions extends Component {
     }
 }
 
-const SolutionSelect = connect(null, mapStateToProps, mapDispatchToProps)(ConnectedSolutions);
+const SolutionSelect = connect(mapStateToProps, mapDispatchToProps)(ConnectedSolutions);
 
 export default SolutionSelect;

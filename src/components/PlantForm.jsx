@@ -1,17 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import uuidv1 from "uuid";
-import { addSymptoms, resetApp } from "../actions/index";
+import { addSymptoms } from "../actions/index";
 
 function mapDispatchToProps(dispatch){
     return {
-        addSymptoms: symptom => dispatch(addSymptoms(symptom)),
-    };
-}
-
-function mapStateToProps(state) {
-    return {
-        symptoms: state.symptoms
+        addSymptoms: symptoms => dispatch(addSymptoms(symptoms))
     }
 }
 
@@ -25,7 +19,6 @@ class ConnectedPlantForm extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleClear = this.handleClear.bind(this);
     }
 
     handleChange(e){
@@ -40,11 +33,6 @@ class ConnectedPlantForm extends Component {
         const id = uuidv1();
         this.props.addSymptoms({ selectedSymptoms, id})
         this.setState({ selectedSymptoms: ''});
-    }
-
-    handleClear(e) {
-        e.preventDefault();
-       /// this.props.resetApp({ });
     }
 
     render() {
@@ -63,13 +51,12 @@ class ConnectedPlantForm extends Component {
             </select>
             </div>
             <button type="submit" className="btn btn-warning">Submit</button>
-            <button type="button" onClick={this.handleClear} className="btn btn-danger">Reset</button>
             </form>
         )
     }
 
 }
 
-const PlantForm = connect(null, mapDispatchToProps, mapStateToProps)(ConnectedPlantForm);
+const PlantForm = connect(null, mapDispatchToProps)(ConnectedPlantForm);
 
 export default PlantForm;
