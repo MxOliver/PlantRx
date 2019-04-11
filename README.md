@@ -1,3 +1,40 @@
+# Plant Rx 
+
+PlantRx is a very simple React Redux app where you can diagnose what is wrong with your houseplants. Simply select the symptom from the drop down and the diagnosis will appear on the left. Then click the `fetch solutions` button to get suggestions on how to cure your plant. You can then add another symptom to the list and repeat the process creating a list of diagnosis and their respective solutions, or you can click reset and it will clear the page. 
+
+Just make sure to fetch the solution after each symptom you submit.
+
+## Try It Out
+
+PlantRx is deployed on heroku at [PlantRx](https://plant-rx.herokuapp.com/) but if you'd like to run it in development mode head over to these [instructions](#app-configuration)
+
+## Follow Up
+
+I built this application as a way to introduce myself to Redux and using a state-managment tool with React. As such, it's pretty simple by design, but some ideas I might like to implement would be:
+
+- [ ] More symptom/solution options through adding an API that links to a plant knowledge base (right now the symptoms and solutions are all based on my personal knowledge and only cover the basic houseplant issues)
+
+- [ ] Option to select symptoms by pictures as well as words
+
+- [ ] Option to add the plant type to get more effective solutions
+
+## App Configuration
+
+1. CLICK `clone or download` and COPY the link
+
+2. OPEN terminal and run `git clone <link> + (optional <custom-filename-of-your-choosing>)`
+
+3. THEN `cd` into the folder containing the source code 
+
+4. Run `npm install` in the terminal to load all necesary dependencies
+
+5. Once it finishes building the `/node_modules` directory you can go ahead and run
+
+`npm start` (the application runs on localhost:3000 but react start script will prompt you if you need to choose an alternate port)
+
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
